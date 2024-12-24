@@ -1,0 +1,5 @@
+export enum USER_TYPE {
+  CUSTOMER = 'CUSTOMER',
+  DRIVER = 'DRIVER',
+  ADMIN = 'ADMIN',
+}
