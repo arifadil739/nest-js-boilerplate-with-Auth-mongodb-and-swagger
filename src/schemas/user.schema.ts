@@ -1,6 +1,8 @@
-import { Prop } from '@nestjs/mongoose';
-import { USER_TYPE } from 'src/utils/enums/enums';
+import { Prop, Schema, SchemaFactory } from '@nestjs/mongoose';
+import { HydratedDocument } from 'mongoose';
+import * as MongooseDelete from 'mongoose-delete';
 
+@Schema({ id: false })
 class Verification {
   @Prop({
     default: false,
@@ -20,6 +22,7 @@ class Verification {
   expiry: number;
 }
 
+@Schema({ id: false })
 class PasswordUpdate {
   @Prop({
     type: String,
@@ -42,7 +45,8 @@ class PasswordUpdate {
   password_updated_at: number;
 }
 
-export abstract class BaseUser {
+@Schema({ timestamps: true })
+export class User {
   @Prop({
     type: String,
     required: true,
@@ -87,12 +91,6 @@ export abstract class BaseUser {
   firebase_uid: string;
 
   @Prop({
-    type: String,
-    required: true,
-  })
-  user_type: USER_TYPE;
-
-  @Prop({
     nullable: false,
     type: String,
   })
@@ -127,3 +125,10 @@ export abstract class BaseUser {
   })
   disabled: boolean;
 }
+
+export type UserDocument = HydratedDocument<User>;
+
+export const UserSchema = SchemaFactory.createForClass(User).plugin(
+  MongooseDelete,
+  { deletedAt: true, overrideMethods: 'all' },
+);
