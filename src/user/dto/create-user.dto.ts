@@ -1,6 +1,6 @@
 import { ApiProperty } from '@nestjs/swagger';
 import { IsEmail, IsNotEmpty } from 'class-validator';
-import { USER_TYPE } from 'src/utils/enums/enums';
+import { USER_TYPE } from '../../utils/enums/enums';
 
 export class CreateUserDto {
   @ApiProperty({
