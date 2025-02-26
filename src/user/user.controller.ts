@@ -27,6 +27,7 @@ import { UserService } from './user.service';
 import { JwtAuthGuard } from './guards/jwt-guard';
 import { AuthUser } from './decorator/get-token.decorator';
 
+
 @ApiTags('User')
 @ApiBearerAuth('userBearerAuth')
 @Controller('user')
