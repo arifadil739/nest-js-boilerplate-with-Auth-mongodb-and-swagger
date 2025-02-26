@@ -126,6 +126,7 @@ export class UserService {
     //   name: user_exists.first_name,
     //   url: `${process.env.UI_URL}auth/new-password?token=${token}&email=${user_exists.email}`,
     // });
+    
     return {
       data: {
         token: token,
