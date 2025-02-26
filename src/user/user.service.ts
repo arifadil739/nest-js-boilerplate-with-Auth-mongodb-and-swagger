@@ -16,8 +16,8 @@ import { CreateUserDto } from './dto/create-user.dto';
 import { LoginUserDto } from './dto/login-user.dto';
 import { ResetPasswordDto } from './dto/reset-pass.dto';
 import { UpdateUserDto } from './dto/update-user.dto';
-import { generateOTP } from 'src/utils/functions/functions';
-import { User, UserDocument } from 'src/schemas/user.schema';
+import { generateOTP } from '../utils/functions/functions';
+import { User, UserDocument } from '../schemas/user.schema';
 
 interface IUser {
   email: string;
