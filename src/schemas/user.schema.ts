@@ -1,6 +1,6 @@
 import { Prop, Schema, SchemaFactory } from '@nestjs/mongoose';
 import { HydratedDocument } from 'mongoose';
-import * as mongooseDelete from 'mongoose-delete';
+import * as MongooseDelete from 'mongoose-delete';
 
 @Schema({ id: false })
 class Verification {
@@ -129,6 +129,6 @@ export class User {
 export type UserDocument = HydratedDocument<User>;
 
 export const UserSchema = SchemaFactory.createForClass(User).plugin(
-  mongooseDelete,
+  MongooseDelete,
   { deletedAt: true, overrideMethods: 'all' },
 );
