@@ -128,7 +128,8 @@ export class User {
 
 export type UserDocument = HydratedDocument<User>;
 
-export const UserSchema = SchemaFactory.createForClass(User).plugin(
-  MongooseDelete,
-  { deletedAt: true, overrideMethods: 'all' },
-);
+export const UserSchema = SchemaFactory.createForClass(User)
+// UserSchema.plugin(
+//   MongooseDelete,
+//   { deletedAt: true, overrideMethods: 'all' },
+// );
